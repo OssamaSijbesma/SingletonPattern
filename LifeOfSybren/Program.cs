@@ -6,6 +6,10 @@ namespace LifeOfSybren
     {
         static void Main(string[] args)
         {
+            Log log = Log.Instance;
+
+            log.Write("Program started.");
+
             Console.WriteLine(@"
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :'##:::::::'####:'########:'########:::::'#######::'########:::
@@ -28,7 +32,14 @@ namespace LifeOfSybren
             Console.WriteLine("Press 'enter' to start.");
             Console.ReadLine();
             Console.Clear();
-            Game.Instance.ActOne();
+
+            log.Write("Singleton game created.");
+            Game game = Game.Instance;
+
+            log.Write("Start act one.");
+            game.ActOne();
+
+            log.Close();
         }
     }
 }
