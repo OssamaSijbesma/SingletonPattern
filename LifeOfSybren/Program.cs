@@ -6,6 +6,8 @@ namespace LifeOfSybren
     {
         static void Main(string[] args)
         {
+            Console.Title = "Life of Sybren";
+
             Log log = Log.Instance;
 
             log.Write("Program started.");
@@ -36,8 +38,9 @@ namespace LifeOfSybren
             log.Write("Singleton game created.");
             Game game = Game.Instance;
 
-            log.Write("Start act one.");
-            game.ActOne();
+            log.Write("Starting game.");
+            game.SetupScenarios();
+            game.Act(1);
 
             log.Close();
         }
