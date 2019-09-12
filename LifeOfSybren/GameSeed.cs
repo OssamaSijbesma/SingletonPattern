@@ -51,8 +51,8 @@ namespace LifeOfSybren
             s = new Scenario(9, "[Gijsbrecht will remember that.]");
             s.AddDefaultPath(10);
             scenarios.Add(s);
-
-            s = new Scenario(10, "Bruh");
+            
+            s = new Scenario(10, "While trying to escape you step on a landmine. It explodes.");
             s.AddDefaultPath(0);
             scenarios.Add(s);
 

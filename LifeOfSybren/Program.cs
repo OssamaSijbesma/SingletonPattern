@@ -9,6 +9,7 @@ namespace LifeOfSybren
             bool isGameActive = true;
             Log log = Log.Instance;
             Console.Title = "Life of Sybren";
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
 
             log.Write("Program started.");
             Console.WriteLine();
