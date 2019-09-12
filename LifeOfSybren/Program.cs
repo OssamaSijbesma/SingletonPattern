@@ -6,41 +6,26 @@ namespace LifeOfSybren
     {
         static void Main(string[] args)
         {
+            bool isGameActive = true;
+            Log log = Log.Instance;
             Console.Title = "Life of Sybren";
 
-            Log log = Log.Instance;
-
             log.Write("Program started.");
-
-            Console.WriteLine(@"
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:'##:::::::'####:'########:'########:::::'#######::'########:::
-: ##:::::::. ##:: ##.....:: ##.....:::::'##.... ##: ##.....::::
-: ##:::::::: ##:: ##::::::: ##:::::::::: ##:::: ##: ##:::::::::
-: ##:::::::: ##:: ######::: ######:::::: ##:::: ##: ######:::::
-: ##:::::::: ##:: ##...:::: ##...::::::: ##:::: ##: ##...::::::
-: ##:::::::: ##:: ##::::::: ##:::::::::: ##:::: ##: ##:::::::::
-: ########:'####: ##::::::: ########::::. #######:: ##:::::::::
-:........::....::..::::::::........::::::.......:::..::::::::::
-::'######::'##:::'##:'########::'########::'########:'##::: ##:
-:'##... ##:. ##:'##:: ##.... ##: ##.... ##: ##.....:: ###:: ##:
-: ##:::..:::. ####::: ##:::: ##: ##:::: ##: ##::::::: ####: ##:
-:. ######::::. ##:::: ########:: ########:: ######::: ## ## ##:
-::..... ##:::: ##:::: ##.... ##: ##.. ##::: ##...:::: ##. ####:
-:'##::: ##:::: ##:::: ##:::: ##: ##::. ##:: ##::::::: ##:. ###:
-:. ######::::: ##:::: ########:: ##:::. ##: ########: ##::. ##:
-::......::::::..:::::........:::..:::::..::........::..::::..::
-                                                                 ");
-            Console.WriteLine("Press 'enter' to start.");
+            Console.WriteLine();
+            Console.Write(GameStrings.Intro);
             Console.ReadLine();
             Console.Clear();
 
-            log.Write("Singleton game created.");
-            Game game = Game.Instance;
+            log.Write("Initiate gameloop.");
+            while (isGameActive)
+            {
+                log.Write("Singleton game instance created.");
+                Game game = Game.Instance;
 
-            log.Write("Starting game.");
-            game.SetupScenarios();
-            game.Act(1);
+                log.Write("Singleton game instance disposed.");
+                game.Dispose();
+                Console.Clear();
+            }
 
             log.Close();
         }
