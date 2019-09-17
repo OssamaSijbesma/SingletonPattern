@@ -8,6 +8,7 @@ namespace LifeOfSybren
     {
         // The singleton instance.
         private static Game instance;
+        private static readonly object padlock = new object();
         private List<Scenario> scenarios = new List<Scenario>();
 
         Log log = Log.Instance;
@@ -30,9 +31,12 @@ namespace LifeOfSybren
         {
             get
             {
-                // If there is no instance create one.
-                if (instance == null) instance = new Game();
-                return instance;
+                lock (padlock)
+                {
+                    // If there is no instance create one.
+                    if (instance == null) instance = new Game();
+                    return instance;
+                }
             }
         }
 
