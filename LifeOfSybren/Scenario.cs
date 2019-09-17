@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LifeOfSybren
 {
-    class Scenario
+    public class Scenario
     {
         private int path;
         private int size;
