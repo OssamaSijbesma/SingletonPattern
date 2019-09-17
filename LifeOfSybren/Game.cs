@@ -11,8 +11,10 @@ namespace LifeOfSybren
         private List<Scenario> scenarios = new List<Scenario>();
 
         Log log = Log.Instance;
-
-        // Private constructor.
+        
+        /// <summary>
+        /// Private constructor to retrieve scenarios and start the game with path 1.
+        /// </summary>
         private Game()
         {
             log.Write("Get scenarios from the seed.");
@@ -20,8 +22,10 @@ namespace LifeOfSybren
             log.Write("Start the game.");
             PathControl(1);
         }
-
-        // Public getter for the singleton instance.
+        
+        /// <summary>
+        /// Public getter for the singleton instance.
+        /// </summary>
         public static Game Instance
         {
             get
@@ -32,6 +36,10 @@ namespace LifeOfSybren
             }
         }
 
+        /// <summary>
+        /// If path is 0 or 999, it calls the endscreen, otherwise it finds the next scenario.
+        /// </summary>
+        /// <param name="path">Path number of wanted scenario.</param>
         private void PathControl(int path)
         {
             switch (path)
@@ -50,6 +58,10 @@ namespace LifeOfSybren
             }
         }
 
+        /// <summary>
+        /// Writes endscreen lines.
+        /// </summary>
+        /// <param name="isVictorious">Whether the player is victorious or not.</param>
         private void EndScreen(bool isVictorious)
         {
             Console.WriteLine();

@@ -14,8 +14,17 @@ namespace LifeOfSybren
         private int[] paths;
         private bool hasChoice;
 
+        /// <summary>
+        /// Public getter for path.
+        /// </summary>
+        /// <returns>Path of current scenario.</returns>
         public int Path() => path;
 
+        /// <summary>
+        /// Constructor to set path and dialogue of scenario.
+        /// </summary>
+        /// <param name="path">Path number.</param>
+        /// <param name="dialogue">Dialogue text.</param>
         public Scenario(int path, string dialogue)
         {
             this.path = path;
@@ -25,11 +34,21 @@ namespace LifeOfSybren
             paths = new int[3];
         }
 
+        /// <summary>
+        /// Constructor to set path, character and dialogue of scenario.
+        /// </summary>
+        /// <param name="path">Path number.</param>
+        /// <param name="character">Character name.</param>
+        /// <param name="dialogue">Dialogue text.</param>
         public Scenario(int path, string character, string dialogue) : this(path, dialogue)
         {
             this.character = character;
         }
 
+        /// <summary>
+        /// Method to play game by displaying the current scenario.
+        /// </summary>
+        /// <returns>Call to itself.</returns>
         public int Play()
         {
             Console.WriteLine();
@@ -58,11 +77,15 @@ namespace LifeOfSybren
             }
             catch (Exception)
             {
-
                 return Play();
             }
         }
 
+        /// <summary>
+        /// Method to add a choice/path combination to a scenario.
+        /// </summary>
+        /// <param name="choice">Text display of choice.</param>
+        /// <param name="path">Path to change to based on choice.</param>
         public void AddChoice(string choice, int path)
         {
             if (!hasChoice)
@@ -74,6 +97,10 @@ namespace LifeOfSybren
             size++;
         }
 
+        /// <summary>
+        /// Method to add a default path to a scenario.
+        /// </summary>
+        /// <param name="defaultPath">Path to change to.</param>
         public void AddDefaultPath(int defaultPath)
         {
             paths[0] = defaultPath;

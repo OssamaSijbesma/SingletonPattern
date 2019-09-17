@@ -8,6 +8,10 @@ namespace LifeOfSybren
     {
         public List<Scenario> scenarios = new List<Scenario>();
 
+        /// <summary>
+        /// Method to create and retrieve scenarios.
+        /// </summary>
+        /// <returns>List of scenarios of type Scenario.</returns>
         public List<Scenario> GetScenarios()
         {
             Scenario s;
